@@ -1,0 +1,1 @@
+CREATE TABLE peliculas (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(255) NOT NULL, estreno VARCHAR(5), calificacion INT);

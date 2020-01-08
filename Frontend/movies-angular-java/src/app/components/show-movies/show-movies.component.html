@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>PELÍCULAS</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>ESTRENO</th>
+                        <th>CALIFICACIÓN</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let movie of movies" class="text-center">
+                        <td>{{movie.id}}</td>
+                        <td>{{movie.nombre}}</td>
+                        <td>{{movie.estreno}}</td>
+                        <td>{{movie.calificacion}}</td>
+                        <td>
+                            <button [routerLink]="['/edit', movie.id]" class="btn btn-warning">Editar</button>
+                            <button (click)="Eliminar(movie.id)" class="btn btn-danger">Borrar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

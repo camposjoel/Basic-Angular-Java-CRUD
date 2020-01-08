@@ -1,0 +1,37 @@
+<div class="container col-md-5">
+    <div class="card">
+        <div class="card-header">
+            <h2>{{titulo_pagina}}</h2>
+        </div>
+        <div class="card-body">
+            <form #MovieForm="ngForm" (ngSubmit)="Guardar()">
+                <div class="form-group">
+                    <label for="">Nombre:</label>
+                    <input name="nombre" #nombre="ngModel" [(ngModel)]="movie.nombre" type="text" class="form-control"
+                        required>
+                    <small *ngIf="!nombre.valid && nombre.touched">
+                        El nombre no es valido
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="">Año de estreno:</label>
+                    <input name="estreno" #estreno="ngModel" [(ngModel)]="movie.estreno" type="text"
+                        class="form-control" pattern="[0-9]+" required>
+                    <small *ngIf="!estreno.valid && estreno.touched">
+                        El dato no es valido
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="">Calificación:</label>
+                    <input name="calificacion" #calificacion="ngModel" [(ngModel)]="movie.calificacion" type="Number"
+                        min="0" max="10" class="form-control" required>
+                    <small *ngIf="!calificacion.valid && calificacion.touched">
+                        La calificación no es valida
+                    </small>
+                </div>
+                
+                <input type="submit" value="Guardar" class="btn btn-success" [disabled]="MovieForm.invalid">
+            </form>
+        </div>
+    </div>
+</div>
